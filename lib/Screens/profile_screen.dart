@@ -2,7 +2,7 @@ import 'package:encrypt/encrypt.dart' as encrypt;
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wisata_candi/widgets/edit_fullname_dialog.dart';
-import 'package:wisata_candi/widgets/profile_info_item.dart';
+import '../widgets/profile_info_item.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -235,13 +235,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 const SizedBox(height: 4),
                 Divider(color: Colors.deepPurple[100]),
                 const SizedBox(height: 4),
-                ProfileInfoItem(
-                  icon: Icons.person,
-                  label: 'Nama',
-                  value: fullName,
-                  showEditIcon: isSignedIn,
-                  onEditPressed: editFullName,
-                  iconColor: Colors.blue,
+                Material(
+                  color: Colors.transparent,
+                  child: ProfileInfoItem(
+                    icon: Icons.person,
+                    label: 'Nama',
+                    value: fullName,
+                    showEditIcon: isSignedIn,
+                    onEditPressed: editFullName,
+                    iconColor: Colors.blue,
+                  ),
                 ),
                 const SizedBox(height: 4),
                 Divider(color: Colors.deepPurple[100]),

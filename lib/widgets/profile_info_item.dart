@@ -1,4 +1,4 @@
-import 'package:material_ui/material_ui.dart';
+import 'package:flutter/material.dart';
 
 class ProfileInfoItem extends StatelessWidget {
   final IconData icon;
@@ -40,7 +40,17 @@ class ProfileInfoItem extends StatelessWidget {
         ),
         Expanded(child: Text(': $value', style: const TextStyle(fontSize: 18))),
         if (showEditIcon)
-          InkWell(onTap: onEditPressed, child: const Icon(Icons.edit)),
+          Material(
+            color: Colors.transparent,
+            child: InkWell(
+              onTap: onEditPressed,
+              borderRadius: BorderRadius.circular(20),
+              child: const Padding(
+                padding: EdgeInsets.all(4),
+                child: Icon(Icons.edit),
+              ),
+            ),
+          ),
       ],
     );
   }

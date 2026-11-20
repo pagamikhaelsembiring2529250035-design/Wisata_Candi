@@ -1,21 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:wisata_candi/Screens/home_screen.dart';
-import 'package:wisata_candi/Screens/search_screen.dart';
-import 'package:wisata_candi/Screens/favorite_screen.dart';
-import 'package:wisata_candi/Screens/profile_screen.dart';
+import 'package:wisata_candi/Screens/SignInScreen.dart';
+import 'package:wisata_candi/Screens/SignupScreen.dart';
+import 'package:wisata_candi/screens/home_screen.dart';
+import 'package:wisata_candi/screens/search_screen.dart';
+import 'package:wisata_candi/screens/favorite_screen.dart';
+import 'package:wisata_candi/screens/profile_screen.dart';
 
 void main() {
   runApp(const MainApp());
 }
 
-class MainApp extends StatefulWidget {
+class MainApp extends StatelessWidget {
   const MainApp({super.key});
 
-  @override
-  State<MainApp> createState() => _MainAppState();
-}
-
-class _MainAppState extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -36,6 +33,14 @@ class _MainAppState extends State<MainApp> {
         useMaterial3: true,
       ),
       home: const MainScreen(),
+      //home: DetailScreen(candi: candiList[0])
+      //home: ProfileScreen()
+      initialRoute: '/',
+      routes: {
+        '/homescreen': (context) => HomeScreen(),
+        '/signin': (context) => SignInScreen(),
+        '/signup': (context) => SignUpScreen(),
+      },
     );
   }
 }
@@ -51,24 +56,21 @@ class _MainScreenState extends State<MainScreen> {
   // TODO: 1. Deklarasikan variabel
   int _currentIndex = 0;
   final List<Widget> _children = [
-    const HomeScreen(),
-    const SearchScreen(),
-    const FavoriteScreen(),
-    const ProfileScreen(),
+    HomeScreen(),
+    SearchScreen(),
+    FavoriteScreen(),
+    ProfileScreen(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // TODO: 2. Buat properti body berupa widget yang ditampilkan
+      // TODO: 2. Buat property Body berupa widget yang ditampilkan
       body: _children[_currentIndex],
-
-      // TODO: 3. Buat properti bottomNavigationBar dengan nilai Theme
+      // TODO: 3. Buat property BottomNavigationBar dengan nilai Theme
       bottomNavigationBar: Theme(
         // TODO: 4. Buat data dan child dari Theme
-        data: Theme.of(context).copyWith(
-          canvasColor: Colors.deepPurple[50],
-        ),
+        data: Theme.of(context).copyWith(canvasColor: Colors.deepPurple[50]),
         child: BottomNavigationBar(
           currentIndex: _currentIndex,
           onTap: (index) {

@@ -1,5 +1,5 @@
 import 'package:encrypt/encrypt.dart' as encrypt;
-import 'package:material_ui/material_ui.dart';
+import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wisata_candi/widgets/edit_fullname_dialog.dart';
 import 'package:wisata_candi/widgets/profile_info_item.dart';

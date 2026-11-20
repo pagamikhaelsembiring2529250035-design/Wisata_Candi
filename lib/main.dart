@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:wisata_candi/Screens/home_screen.dart';
 import 'package:wisata_candi/Screens/search_screen.dart';
 import 'package:wisata_candi/Screens/favorite_screen.dart';
-import 'package:wisata_candi/Screens/profile.dart';
+import 'package:wisata_candi/Screens/profile_screen.dart';
 
 void main() {
   runApp(const MainApp());
